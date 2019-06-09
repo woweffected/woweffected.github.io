@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Minimal React Webpack build</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-icon-180x180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="react_webpack"><link rel="icon" type="image/png" sizes="32x32" href="icons-d30e91674c06b16f6725a326b948e821/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="icons-d30e91674c06b16f6725a326b948e821/favicon-16x16.png"><link rel="shortcut icon" href="icons-d30e91674c06b16f6725a326b948e821/favicon.ico"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#fff"><meta name="application-name" content="react_webpack"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-320x460.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-640x920.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-640x1096.png"><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-750x1294.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-1182x2208.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-1242x2148.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-748x1024.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-768x1004.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-1496x2048.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="icons-d30e91674c06b16f6725a326b948e821/apple-touch-startup-image-1536x2008.png"><link href="app.css" rel="stylesheet"></head>
+  <body class="page">
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="svgClose" viewbox="0 0 14 14">
+      <path d="M7 8.038l-5.826 5.826c-.22.22-.632.168-.919-.12-.287-.286-.34-.697-.119-.918L5.962 7 .136 1.174c-.22-.22-.168-.632.12-.919.286-.287.697-.34.918-.119L7 5.962 12.826.136c.22-.22.632-.168.919.12.287.286.34.697.119.918L8.038 7l5.826 5.826c.22.22.168.632-.12.919-.286.287-.697.34-.918.119L7 8.038z" fill="currentColor" fill-rule="evenodd"></path>
+    </symbol>
+    <symbol id="svgPrev" viewbox="0 0 9 15" fill="none">
+      <path d="M8 1L2 7.5 8 14" stroke="currentColor" stroke-width="1.5"></path>
+    </symbol>
+    <symbol id="svgNext" viewbox="0 0 9 15" fill="none">
+      <path d="M1 1l6 6.5L1 14" stroke="currentColor" stroke-width="1.5"></path>
+    </symbol>
+  </defs>
+</svg>
+    <!--.page__popup
+    //include popup
+    
+    -->
+    <div class="page__header">
+      <header class="header"><a class="header__logo" href="/"><img class="logo" src="img/logo.svg"></a>
+        <nav class="header__menu">
+          <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="/">Zum Inhalt wechseln</a></li>
+            <li class="menu__item"><a class="menu__link" href="/">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="/">Über mich</a></li>
+            <li class="menu__item"><a class="menu__link" href="/">News</a></li>
+            <li class="menu__item"><a class="menu__link" href="/">Portfolio</a></li>
+            <li class="menu__item"><a class="menu__link" href="/">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="header__burger">
+          <button class="burger"><span class="burger__icon"></span></button>
+        </div>
+      </header>
+    </div>
+    <div class="page__content">
+      <section class="section section-1">
+        <div class="section__background-wrapper">
+          <div class="section__background section__background--2"></div>
+        </div>
+        <div class="typography typography--dark section__container">
+          <h1>Erotic Ambiguities</h1>
+          <blockquote>
+            <p>Mystic shadows, human bodies reduced to its outlines, mysterious creatures, which evolve out of mirror reflections – and the recurring female body. Pierre Joel’s photographs are erotic ambiguities. With his sympolic and partly surrealistic work, he devotes himself to the mystery of the human body: Without taboo nudity is thereby his mean of expression on his fotografic journey. He stages women more as seducing icons or sometimes as frail creatures, which always keep being ambigous and unobtainable.</p>
+            <p>Pierre Joel experiments with  the body as well as the medium itself. He renounces digital image editing and goes back to the roots and to the pioneers of fotografy: By using mirrors, window panes, reflecting plates and other materials, he achieves the for his work charakteristic effects. In this way, his pictures achieve a mystic charisma and authenticity – which make his work unique.</p>
+            <cite>Stefanie Kinsky, Journalist</cite>
+          </blockquote>
+        </div>
+      </section>
+      <section class="section section--light">
+        <div class="section__background-wrapper">
+          <div class="section__background"></div>
+        </div>
+        <div class="typography section__container">
+          <h2>Header</h2>
+          <p>Born at the end of the 60s and grown up on a picturesque Island,&nbsp;<a href="/">Pierre Joel</a>&nbsp; has developed an infinite curiosity for art and aesthetics throughout his diverse life. Being journalist, film director and photographer at the same time, he started to become interested in nude art and the art of the body, mainly through his artistic projects. “I have become interested in nudity in year 2000. Above all it is a passion without any ambition to become famous and recognized for it…”</p>
+          <h3>Header</h3>
+          <p>It was when Drouot, a critics, contacted him three years afterwards for one of his pieces “Fleur de Lys”, that Pierre Joël considered to be a professional nude artist and to deepen his research and knowledge on nude art. The name of his website “Art-Corporel”, represents an atypical perspective on the human body, where the body is not object of photography, but rather becomes only the tool for the nature of the body to express itself.</p>
+          <ul>
+            <li>
+              <p>Putting himself under the service of the body and its various questions and facets, this has been the path, Pierre Joël has chosen for himself.</p>
+            </li>
+            <li>
+              <h2>Resume:</h2>
+              <p>Putting himself under the service of the body and its various questions and facets, this has been the path, Pierre Joël has chosen for himself.</p>
+              <ul>
+                <li>
+                  <h3>Resume:</h3>
+                  <p>Stage designer & stage technician for shows and theaters in Berlin</p><strong>Resume:</strong>
+                  <p>Stage designer & stage technician for shows and theaters in Berlin</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>Putting himself under the service of the body and its various questions and facets, this has been the path, Pierre Joël has chosen for himself.</p>
+        </div>
+      </section>
+      <section class="section section-2">
+        <div class="section__background-wrapper">
+          <div class="section__background"></div>
+        </div>
+        <ul class="teasers">
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-1.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-2.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-3.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-1.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-2.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-3.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-1.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-2.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-3.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-1.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-2.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+          <li class="teasers__item">
+            <div class="teaser"><img class="teaser__thumbnail" src="/img/bg-3.jpg">
+              <div class="teaser__text">Gallery name</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <footer class="section footer section-3">
+        <div class="section__background-wrapper">
+          <div class="section__background section__background--3"></div>
+        </div>
+        <div class="section__container">
+          <div class="footer__copy">&copy; 2019<br>pierre-joel.com</div>
+        </div>
+      </footer>
+    </div>
+  <script type="text/javascript" src="index.js"></script></body>
+</html>
